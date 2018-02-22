@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +21,7 @@ import org.w3c.dom.Text;
 public class LobbyActive extends Fragment {
     private TextView userScore, league, owner, lobbyID;
     private Button history, play;
+    private ParticipantsAdapter participantsAdapter;
 
     public LobbyActive() {
         // Required empty public constructor
@@ -39,6 +42,13 @@ public class LobbyActive extends Fragment {
         history = (Button)v.findViewById(R.id.history);
         play = (Button)v.findViewById(R.id.play);
 
+        //Initializing adapter
+        //CONSEGUIR UNA LISTA DE NOMBRE CON USUARIOS Y SUS SCORES DE LA DB
+        ArrayList<String[]> items = new ArrayList<String[]>(); //INICIALIZAR LOS DATOS AQUI
+
+        participantsAdapter = new ParticipantsAdapter(items, getActivity());
+
+        //Filling textviews
         //NECESITAMOS ENCONTRAR LA INFO DE CADA TEXTO EN LA DB
         //PARA ESO TENEMOS QUE RECIBIR EL USERNAME LOGEADO DE ALGUN MODO
         String userName = "UserTest"; //PONER EL RESULTADO AQUI
@@ -46,8 +56,6 @@ public class LobbyActive extends Fragment {
         String ownerString = "AnotherUser"; //CON EL USERNAME BUSCAR EL DUEÑO DEL JUEGO ACTUAL
         String idString = "FBA123"; //CON EL USERNAME BUSCAR EL ID DEL JUEGO ACTUAL
         String scoreString = "3"; //CON EL USERNAME BUSCAR EL SCORE DEL JUGADOR EN EL JUEGO ACTUAL
-
-        //Filling textviews
         userScore.setText("Score: "+scoreString);
         league.setText("League: "+leagueString);
         owner.setText("Owner: "+ ownerString);

@@ -36,7 +36,7 @@
           </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+              <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -49,7 +49,7 @@
           </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="444">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,7 +58,7 @@
       <file leaf-file-name="LobbyUnactive.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyUnactive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
+            <state relative-caret-position="493">
               <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
               <folding>
                 <element signature="e#906#1210#0" expanded="true" />
@@ -74,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -87,28 +87,68 @@
           </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LobbyActive.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LobbyActive.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyActive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="51" column="48" lean-forward="true" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+            <state relative-caret-position="323">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
-                <element signature="e#2220#2513#0" expanded="true" />
-                <element signature="e#2512#2513#0" expanded="true" />
-                <element signature="e#2549#2839#0" expanded="true" />
-                <element signature="e#2838#2839#0" expanded="true" />
+                <element signature="e#1465#1475#0" expanded="true" />
+                <element signature="e#2578#2871#0" expanded="true" />
+                <element signature="e#2870#2871#0" expanded="true" />
+                <element signature="e#2907#3197#0" expanded="true" />
+                <element signature="e#3196#3197#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ParticipantsAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/ParticipantsAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#585#586#0" expanded="true" />
+                <element signature="e#621#622#0" expanded="true" />
+                <element signature="e#671#672#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
+                <element signature="e#757#758#0" expanded="true" />
+                <element signature="e#781#782#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="participant.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/participant.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -1834,7 +1874,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_lobby.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_lobby_active.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/participant.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/participantsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyActive.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/ParticipantsAdapter.java" />
       </list>
     </option>
   </component>
@@ -1956,7 +1999,7 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Fragments" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Parcial1" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -2046,7 +2089,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519331378903" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519343075081" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2094,7 +2137,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519331378903" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519343075082" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2277,7 +2320,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519331378905" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519343075084" />
       </method>
     </configuration>
     <list size="1">
@@ -2462,7 +2505,7 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -2473,28 +2516,15 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="444">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyUnactive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-          <folding>
-            <element signature="e#906#1210#0" expanded="true" />
-            <element signature="e#1209#1210#0" expanded="true" />
-            <element signature="e#1246#1551#0" expanded="true" />
-            <element signature="e#1550#1551#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2505,20 +2535,61 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/participant.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyUnactive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+          <folding>
+            <element signature="e#906#1210#0" expanded="true" />
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1246#1551#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyActive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="51" column="48" lean-forward="true" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        <state relative-caret-position="323">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <element signature="e#2220#2513#0" expanded="true" />
-            <element signature="e#2512#2513#0" expanded="true" />
-            <element signature="e#2549#2839#0" expanded="true" />
-            <element signature="e#2838#2839#0" expanded="true" />
+            <element signature="e#1465#1475#0" expanded="true" />
+            <element signature="e#2578#2871#0" expanded="true" />
+            <element signature="e#2870#2871#0" expanded="true" />
+            <element signature="e#2907#3197#0" expanded="true" />
+            <element signature="e#3196#3197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/ParticipantsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#757#758#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
           </folding>
         </state>
       </provider>
