@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "550103559843",
+    "firebase_url": "https://quinelapp.firebaseio.com",
+    "project_id": "quinelapp",
+    "storage_bucket": "quinelapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550103559843:android:40c2115052f9c72d",
+        "android_client_info": {
+          "package_name": "moviles2018itesm.quinelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550103559843-084phvlttog59fdeuhvmf3dnj16a88lh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "moviles2018itesm.quinelapp",
+            "certificate_hash": "82ad041655e75af6db5e2a8e58ff8ce685ed73cb"
+          }
+        },
+        {
+          "client_id": "550103559843-l08m7vcgeg3cnq78u2u79h4ii5f0hj8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVJbcB0TzJKwVvKTvzpLL9BdwppD-DbK0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550103559843-l08m7vcgeg3cnq78u2u79h4ii5f0hj8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
