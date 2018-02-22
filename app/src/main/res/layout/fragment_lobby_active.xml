@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="moviles2018itesm.quinelapp.LobbyActive">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/participants"
+        android:layout_alignParentTop="true"
+        android:text="User Score" />
+
+    <TextView
+        android:id="@+id/league"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/score"
+        android:layout_marginStart="21dp"
+        android:text="League: " />
+
+    <TextView
+        android:id="@+id/owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/league"
+        android:layout_below="@+id/league"
+        android:layout_marginTop="14dp"
+        android:text="Owner: " />
+
+    <TextView
+        android:id="@+id/participants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/owner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Participants" />
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/participants"
+        android:text="Play" />
+
+    <Button
+        android:id="@+id/history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="18dp"
+        android:layout_toStartOf="@+id/participants"
+        android:text="History" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/play"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/participants" />
+
+    <TextView
+        android:id="@+id/lobbyID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/play"
+        android:layout_below="@+id/score"
+        android:text="LobbyID: " />
+</RelativeLayout>
