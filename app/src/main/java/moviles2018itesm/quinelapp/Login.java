@@ -1,5 +1,7 @@
 package moviles2018itesm.quinelapp;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +27,25 @@ public class Login extends AppCompatActivity {
     private EditText passwordField;
 
     private Button login;
+
+    private ProgressDialog mProgressDialog;
+
+    public void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.setMessage("Loading...");
+        }
+
+        mProgressDialog.show();
+    }
+
+    public void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +91,7 @@ public class Login extends AppCompatActivity {
 
     public void signIn(View v){
         Log.d(TAG, usernameField.getText().toString() + " " + passwordField.getText().toString());
+        showProgressDialog();
         mAuth.signInWithEmailAndPassword(usernameField.getText().toString(), passwordField.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -80,15 +102,10 @@ public class Login extends AppCompatActivity {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(Login.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
 
@@ -99,9 +116,14 @@ public class Login extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user){
         if (user != null){
-
+            hideProgressDialog();
+            Intent intent = new Intent(this, Lobby.class);
+            startActivity(intent);
+            intent.putExtra("user", usernameField.getText().toString());
         } else {
-
+            hideProgressDialog();
+            Toast.makeText(Login.this, "Username or password not found.",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
