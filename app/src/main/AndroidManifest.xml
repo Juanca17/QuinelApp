@@ -16,8 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Lobby"></activity>
-        <activity android:name=".GameListActivity"></activity>
+        <activity android:name=".Lobby" />
+        <activity android:name=".GameListActivity" />
+        <activity android:name=".CreateActivity"></activity>
     </application>
 
 </manifest>
