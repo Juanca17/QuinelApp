@@ -20,6 +20,7 @@
         <activity android:name=".create" />
         <activity android:name=".Join"></activity>
         <activity android:name=".Create" />
+        <activity android:name=".HistorialActivity"></activity>
     </application>
 
 </manifest>
