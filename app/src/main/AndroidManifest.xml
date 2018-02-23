@@ -18,11 +18,11 @@
         </activity>
         <activity android:name=".Lobby" />
         <activity android:name=".GameListActivity" />
-        <activity android:name=".CreateActivity"></activity>
         <activity android:name=".Lobby" />
         <activity android:name=".Join"></activity>
         <activity android:name=".Create" />
         <activity android:name=".HistorialActivity"></activity>
+        <activity android:name=".News"></activity>
     </application>
 
 </manifest>

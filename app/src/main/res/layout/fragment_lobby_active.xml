@@ -73,4 +73,12 @@
         android:layout_alignEnd="@+id/play"
         android:layout_below="@+id/score"
         android:text="LobbyID: " />
+
+    <Button
+        android:id="@+id/news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/participants"
+        android:layout_below="@+id/list"
+        android:text="News" />
 </RelativeLayout>
