@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1fca42c-f682-4460-97d3-ba0d2ffb8357" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/User.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
@@ -18,7 +18,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java" afterPath="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyActive.java" afterPath="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyActive.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/User.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,21 +74,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lobby.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Lobby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="94" column="21" lean-forward="false" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="21" />
+            <state relative-caret-position="457">
+              <caret line="43" column="62" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="78" />
+              <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="78" />
+              <caret line="45" column="65" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="78" />
+              <caret line="46" column="74" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="78" />
+              <caret line="47" column="62" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="78" />
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="78" />
+              <caret line="49" column="47" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="78" />
+              <caret line="50" column="40" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="78" />
+              <caret line="51" column="75" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="78" />
+              <caret line="52" column="51" lean-forward="false" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="78" />
+              <caret line="53" column="58" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="78" />
+              <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="78" />
+              <caret line="55" column="61" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="78" />
+              <caret line="56" column="25" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="78" />
+              <caret line="57" column="21" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="78" />
+              <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="78" />
+              <caret line="59" column="58" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="78" />
+              <caret line="60" column="65" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="78" />
+              <caret line="61" column="44" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="78" />
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="78" />
+              <caret line="63" column="43" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="78" />
+              <caret line="64" column="58" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="78" />
+              <caret line="65" column="63" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="78" />
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="78" />
+              <caret line="67" column="48" lean-forward="false" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="78" />
+              <caret line="68" column="42" lean-forward="false" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="78" />
+              <caret line="69" column="56" lean-forward="false" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="78" />
+              <caret line="70" column="78" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="78" />
+              <caret line="71" column="23" lean-forward="false" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="78" />
+              <caret line="72" column="52" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="78" />
+              <caret line="73" column="76" lean-forward="false" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="78" />
+              <caret line="74" column="17" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="78" />
+              <caret line="75" column="28" lean-forward="false" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="78" />
+              <caret line="76" column="13" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="78" />
+              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="78" />
+              <caret line="78" column="21" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="78" />
+              <caret line="79" column="58" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="78" />
+              <caret line="80" column="39" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="78" />
+              <caret line="81" column="77" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="78" />
+              <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="78" />
+              <caret line="83" column="11" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LobbyActive.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LobbyActive.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyActive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+            <state relative-caret-position="148">
+              <caret line="101" column="55" lean-forward="false" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -106,8 +157,8 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <state relative-caret-position="180">
+              <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -129,6 +180,7 @@
       <find>println</find>
       <find>print</find>
       <find>LOBBY</find>
+      <find>log</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1879,8 +1931,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Login.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/User.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/User.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyActive.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Game.java" />
       </list>
     </option>
   </component>
@@ -2205,7 +2259,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519347649778" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519350672943" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2253,7 +2307,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519347649779" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519350672943" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2436,7 +2490,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519347649780" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519350672944" />
       </method>
     </configuration>
     <list size="1">
@@ -2486,7 +2540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519337001662</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Login and Lobby now work together properly. Missing dynamic data for lobby with game, and activities for create and join">
+      <created>1519347742829</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1519347742829</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2555,21 +2616,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Login Implemented, missing change of activity after login and possible registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login Implemented, missing change of activity after login and possible registration" />
+    <MESSAGE value="Login and Lobby now work together properly. Missing dynamic data for lobby with game, and activities for create and join" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login and Lobby now work together properly. Missing dynamic data for lobby with game, and activities for create and join" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" column="43" lean-forward="false" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -2984,19 +3038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1519342973355" expanded="true" signature="1418:1424" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -3049,12 +3090,33 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/User.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyUnactive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        <state relative-caret-position="138">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519342973355" expanded="true" signature="1418:1424" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Login.java">
@@ -3071,26 +3133,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyUnactive.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        <state relative-caret-position="457">
+          <caret line="43" column="62" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="78" />
+          <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="78" />
+          <caret line="45" column="65" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="78" />
+          <caret line="46" column="74" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="78" />
+          <caret line="47" column="62" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="78" />
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="78" />
+          <caret line="49" column="47" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="78" />
+          <caret line="50" column="40" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="78" />
+          <caret line="51" column="75" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="78" />
+          <caret line="52" column="51" lean-forward="false" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="78" />
+          <caret line="53" column="58" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="78" />
+          <caret line="54" column="32" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="78" />
+          <caret line="55" column="61" lean-forward="false" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="78" />
+          <caret line="56" column="25" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="78" />
+          <caret line="57" column="21" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="78" />
+          <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="78" />
+          <caret line="59" column="58" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="78" />
+          <caret line="60" column="65" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="78" />
+          <caret line="61" column="44" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="78" />
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="78" />
+          <caret line="63" column="43" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="78" />
+          <caret line="64" column="58" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="78" />
+          <caret line="65" column="63" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="78" />
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="78" />
+          <caret line="67" column="48" lean-forward="false" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="78" />
+          <caret line="68" column="42" lean-forward="false" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="78" />
+          <caret line="69" column="56" lean-forward="false" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="78" />
+          <caret line="70" column="78" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="78" />
+          <caret line="71" column="23" lean-forward="false" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="78" />
+          <caret line="72" column="52" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="78" />
+          <caret line="73" column="76" lean-forward="false" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="78" />
+          <caret line="74" column="17" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="78" />
+          <caret line="75" column="28" lean-forward="false" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="78" />
+          <caret line="76" column="13" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="78" />
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="78" />
+          <caret line="78" column="21" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="78" />
+          <caret line="79" column="58" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="78" />
+          <caret line="80" column="39" lean-forward="false" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="78" />
+          <caret line="81" column="77" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="78" />
+          <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="78" />
+          <caret line="83" column="11" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/LobbyActive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/moviles2018itesm/quinelapp/Lobby.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="94" column="21" lean-forward="false" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="21" />
+        <state relative-caret-position="148">
+          <caret line="101" column="55" lean-forward="false" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
           <folding />
         </state>
       </provider>
