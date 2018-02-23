@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +35,7 @@ import java.util.ArrayList;
 public class LobbyActive extends Fragment {
     private TextView userScore, league, owner, lobbyID;
     private Button history, play;
+    private ListView list;
     SharedPreferences sharedPreferences;
     private ParticipantsAdapter participantsAdapter;
 
@@ -55,6 +57,7 @@ public class LobbyActive extends Fragment {
         lobbyID = (TextView)v.findViewById(R.id.lobbyID);
         history = (Button)v.findViewById(R.id.history);
         play = (Button)v.findViewById(R.id.play);
+        list = (ListView)v.findViewById(R.id.list);
 
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -63,6 +66,10 @@ public class LobbyActive extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                String gameTemp = "";
+                ArrayList<String[]> items = new ArrayList<String[]>(); //INICIALIZAR LOS DATOS AQUI
+                participantsAdapter = new ParticipantsAdapter(items, getActivity());
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
 
@@ -70,6 +77,7 @@ public class LobbyActive extends Fragment {
                     assert user != null;
                     if (Objects.equals(currentUser.getEmail(), user.name)){
                         userScore.setText("Score: " + user.score);
+                        gameTemp = user.game;
                         sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("game", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("game", user.game);
@@ -77,6 +85,18 @@ public class LobbyActive extends Fragment {
                         Log.w("ACTIVE", user.game);
                     }
                 }
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    User user = snapshot.getValue(User.class);
+
+                    assert currentUser != null;
+                    assert user != null;
+                    if (Objects.equals(user.game, gameTemp) && !(Objects.equals(currentUser.getEmail(), user.name))){
+                        String[] temp = {user.name, Integer.toString(user.score)};
+                        items.add(temp);
+                    }
+                }
+
+                list.setAdapter(participantsAdapter);
 
             }
 
@@ -86,11 +106,6 @@ public class LobbyActive extends Fragment {
                 Log.w("LOBBY", "Failed to read value.", error.toException());
             }
         });
-
-        sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("game", Context.MODE_PRIVATE);
-        String game = sharedPreferences.getString("game", null);
-
-        Log.w("ACTIVE", game + " ");
 
         myRef = database.getReference("games");
 
@@ -124,19 +139,6 @@ public class LobbyActive extends Fragment {
         ArrayList<String[]> items = new ArrayList<String[]>(); //INICIALIZAR LOS DATOS AQUI
 
         participantsAdapter = new ParticipantsAdapter(items, getActivity());
-
-        //Filling textviews
-        //NECESITAMOS ENCONTRAR LA INFO DE CADA TEXTO EN LA DB
-        //PARA ESO TENEMOS QUE RECIBIR EL USERNAME LOGEADO DE ALGUN MODO
-        String userName = "UserTest"; //PONER EL RESULTADO AQUI
-        String leagueString = "LigaMexicana"; //CON EL USERNAME BUSCAR LA LIGA DEL JUEGO ACTUAL
-        String ownerString = "AnotherUser"; //CON EL USERNAME BUSCAR EL DUEÑO DEL JUEGO ACTUAL
-        String idString = "FBA123"; //CON EL USERNAME BUSCAR EL ID DEL JUEGO ACTUAL
-        String scoreString = "3"; //CON EL USERNAME BUSCAR EL SCORE DEL JUGADOR EN EL JUEGO ACTUAL
-        userScore.setText("Score: "+scoreString);
-        league.setText("League: "+leagueString);
-        owner.setText("Owner: "+ ownerString);
-        lobbyID.setText("Lobby: "+ idString);
 
         //-----------------------------------
         //DE ALGUNA FORMA LLENAR LISTVIEW CON PARTICIPANTES AQUI

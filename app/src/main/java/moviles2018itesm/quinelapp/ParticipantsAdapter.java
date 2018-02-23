@@ -46,7 +46,7 @@ public class ParticipantsAdapter extends BaseAdapter {
         TextView name = (TextView)view.findViewById(R.id.participantName);
         TextView score = (TextView)view.findViewById(R.id.participantScore);
 
-        score.setText(currentItem[0]); //AQUI METER EL VALOR DEL NOMBRE
+        name.setText(currentItem[0]); //AQUI METER EL VALOR DEL NOMBRE
         score.setText(currentItem[1]); //AQUI METER EL VALOR DEL SCORE
 
         return view;
