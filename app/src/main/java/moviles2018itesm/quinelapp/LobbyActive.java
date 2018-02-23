@@ -66,6 +66,7 @@ public class LobbyActive extends Fragment {
                     assert currentUser != null;
                     assert user != null;
                     if (Objects.equals(currentUser.getEmail(), user.name)){
+                        userScore.setText("Score: " + user.score);
                         sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("game", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("game", user.game);
@@ -94,16 +95,16 @@ public class LobbyActive extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    User user = snapshot.getValue(User.class);
+                    Game game = snapshot.getValue(Game.class);
+                    sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("game", Context.MODE_PRIVATE);
+                    String gameSec = sharedPreferences.getString("game", null);
 
                     assert currentUser != null;
-                    assert user != null;
-                    if (Objects.equals(currentUser.getEmail(), user.name)){
-                        sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("game", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("game", user.game);
-                        editor.apply();
-                        Log.w("ACTIVE", user.game);
+                    assert game != null;
+                    if (Objects.equals(gameSec, game.id)){
+                        league.setText("League: " + game.league);
+                        owner.setText("Owner: " + game.owner);
+                        lobbyID.setText("Lobby: " + game.id);
                     }
                 }
 
@@ -115,20 +116,6 @@ public class LobbyActive extends Fragment {
                 Log.w("LOBBY", "Failed to read value.", error.toException());
             }
         });
-
-        //NECESITAMOS ENCONTRAR LA INFO DE CADA TEXTO EN LA DB
-        //PARA ESO TENEMOS QUE RECIBIR EL USERNAME LOGEADO DE ALGUN MODO
-        String userName = "UserTest"; //PONER EL RESULTADO AQUI
-        String leagueString = "LigaMexicana"; //CON EL USERNAME BUSCAR LA LIGA DEL JUEGO ACTUAL
-        String ownerString = "AnotherUser"; //CON EL USERNAME BUSCAR EL DUEÑO DEL JUEGO ACTUAL
-        String idString = "FBA123"; //CON EL USERNAME BUSCAR EL ID DEL JUEGO ACTUAL
-        String scoreString = "3"; //CON EL USERNAME BUSCAR EL SCORE DEL JUGADOR EN EL JUEGO ACTUAL
-
-        //Filling textviews
-        userScore.setText("Score: "+scoreString);
-        league.setText("League: "+leagueString);
-        owner.setText("Owner: "+ ownerString);
-        lobbyID.setText("Lobby: "+ idString);
 
         //-----------------------------------
         //DE ALGUNA FORMA LLENAR LISTVIEW CON PARTICIPANTES AQUI
