@@ -118,8 +118,8 @@ public class Login extends AppCompatActivity {
         if (user != null){
             hideProgressDialog();
             Intent intent = new Intent(this, Lobby.class);
-            startActivity(intent);
             intent.putExtra("user", usernameField.getText().toString());
+            startActivity(intent);
         } else {
             hideProgressDialog();
             Toast.makeText(Login.this, "Username or password not found.",
