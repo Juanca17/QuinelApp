@@ -7,6 +7,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Create extends AppCompatActivity {
     private TextView lobbyName, leagueInput, participantsNumber;
     private Button submit;
@@ -20,17 +30,38 @@ public class Create extends AppCompatActivity {
         leagueInput = (TextView)findViewById(R.id.leagueInput);
         participantsNumber = (TextView)findViewById(R.id.participansNumber);
         submit = (Button)findViewById(R.id.submit);
+
+        final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String lobbyNameString = lobbyName.getText().toString();
+                String leagueInputString = leagueInput.getText().toString();
+                String participantsNumberString = participantsNumber.getText().toString();
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("games");
+
+                Map<String, Game> games = new HashMap<>();
+
+                Game game = new Game();
+                game.owner = currentUser.getEmail();
+                game.league = leagueInputString;
+                game.name = lobbyNameString;
+                game.numPlayer = participantsNumberString;
+
+                games.put("game_1", game);
+
+                DatabaseReference newRef = myRef.push();
+                String postId = newRef.getKey();
+                game.id = postId;
+
+                newRef.setValue(game);
+
+
+                Toast.makeText(Create.this,"Lobby created. Lobby ID: " + postId, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    public void submitClick(View v){
-        //Recovering text from textviews
-        String lobbyNameString = lobbyName.getText().toString();
-        String leagueInputString = leagueInput.getText().toString();
-        String participantsNumberString = participantsNumber.getText().toString();
-
-        //Creating new lobby with data recovered and putting the loged player in the new game lobby
-        //DE ALGUNA FORMA CREAR UN NUEVO LOBBY CON LOS DATOS RECUPERADOS
-        //_--------------------------
-        Toast.makeText(this,"Lobby created, you have joined the new lobby", Toast.LENGTH_SHORT).show();
-    }
 }

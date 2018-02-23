@@ -148,8 +148,8 @@ public class LobbyActive extends Fragment {
             @Override
             public void onClick(View view) {
                 //PASAR A LA ACTIVIDAD DE HISTORIA
-                //Intent intent = new Intent(getActivity(), GameListActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
-                //getActivity(intent);
+                Intent intent = new Intent(LobbyActive.this.getContext(), HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+                startActivity(intent);
             }
         });
 
@@ -167,13 +167,13 @@ public class LobbyActive extends Fragment {
 
     public void playClick(View v){
         //PASAR A LA ACTIVIDAD DE JUEGO
-        Intent intent = new Intent();//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+        Intent intent = new Intent(LobbyActive.this.getContext(), GameListActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
         startActivity(intent);
     }
 
     public void historyClick(View v){
         //PASAR A LA ACTIVIDAD DE HISTORIA
-        Intent intent = new Intent();//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+        Intent intent = new Intent(LobbyActive.this.getContext(), HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
         startActivity(intent);
     }
 }
