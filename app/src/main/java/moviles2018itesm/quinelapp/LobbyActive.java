@@ -78,4 +78,15 @@ public class LobbyActive extends Fragment {
         return v;
     }
 
+    public void playClick(View v){
+        //PASAR A LA ACTIVIDAD DE JUEGO
+        Intent intent = new Intent();//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+        startActivity(intent);
+    }
+
+    public void historyClick(View v){
+        //PASAR A LA ACTIVIDAD DE HISTORIA
+        Intent intent = new Intent();//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+        startActivity(intent);
+    }
 }

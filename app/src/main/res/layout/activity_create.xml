@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="moviles2018itesm.quinelapp.create">
+
+    <EditText
+        android:id="@+id/lobbyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:ems="10"
+        android:hint="Lobby Name"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <EditText
+        android:id="@+id/leagueInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lobbyName"
+        android:layout_below="@+id/lobbyName"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:hint="League"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="102dp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp"
+        android:text="SUBMIT"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="397dp" />
+
+    <EditText
+        android:id="@+id/participansNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/leagueInput"
+        android:layout_below="@+id/leagueInput"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="# participants"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+</RelativeLayout>

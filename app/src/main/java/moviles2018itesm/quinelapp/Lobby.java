@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
-public class Lobby extends AppCompatActivity {
+public class Lobby extends AppCompatActivity{
     private TextView userName;
     private LobbyUnactive lobbyUnactive;
     private LobbyActive lobbyActive;
