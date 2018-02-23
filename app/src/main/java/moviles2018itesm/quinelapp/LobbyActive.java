@@ -25,6 +25,8 @@ import org.w3c.dom.Text;
 
 import java.util.Objects;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +35,7 @@ public class LobbyActive extends Fragment {
     private TextView userScore, league, owner, lobbyID;
     private Button history, play;
     SharedPreferences sharedPreferences;
+    private ParticipantsAdapter participantsAdapter;
 
     public LobbyActive() {
         // Required empty public constructor
@@ -116,6 +119,24 @@ public class LobbyActive extends Fragment {
                 Log.w("LOBBY", "Failed to read value.", error.toException());
             }
         });
+        //Initializing adapter
+        //CONSEGUIR UNA LISTA DE NOMBRE CON USUARIOS Y SUS SCORES DE LA DB
+        ArrayList<String[]> items = new ArrayList<String[]>(); //INICIALIZAR LOS DATOS AQUI
+
+        participantsAdapter = new ParticipantsAdapter(items, getActivity());
+
+        //Filling textviews
+        //NECESITAMOS ENCONTRAR LA INFO DE CADA TEXTO EN LA DB
+        //PARA ESO TENEMOS QUE RECIBIR EL USERNAME LOGEADO DE ALGUN MODO
+        String userName = "UserTest"; //PONER EL RESULTADO AQUI
+        String leagueString = "LigaMexicana"; //CON EL USERNAME BUSCAR LA LIGA DEL JUEGO ACTUAL
+        String ownerString = "AnotherUser"; //CON EL USERNAME BUSCAR EL DUEÑO DEL JUEGO ACTUAL
+        String idString = "FBA123"; //CON EL USERNAME BUSCAR EL ID DEL JUEGO ACTUAL
+        String scoreString = "3"; //CON EL USERNAME BUSCAR EL SCORE DEL JUGADOR EN EL JUEGO ACTUAL
+        userScore.setText("Score: "+scoreString);
+        league.setText("League: "+leagueString);
+        owner.setText("Owner: "+ ownerString);
+        lobbyID.setText("Lobby: "+ idString);
 
         //-----------------------------------
         //DE ALGUNA FORMA LLENAR LISTVIEW CON PARTICIPANTES AQUI
