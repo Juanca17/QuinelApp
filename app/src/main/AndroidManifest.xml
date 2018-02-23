@@ -22,6 +22,7 @@
         <activity android:name=".Lobby" />
         <activity android:name=".Join"></activity>
         <activity android:name=".Create" />
+        <activity android:name=".HistorialActivity"></activity>
     </application>
 
 </manifest>
