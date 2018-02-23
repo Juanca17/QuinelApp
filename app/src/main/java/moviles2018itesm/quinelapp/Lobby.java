@@ -18,7 +18,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
-
 import java.util.Objects;
 
 public class Lobby extends AppCompatActivity {
