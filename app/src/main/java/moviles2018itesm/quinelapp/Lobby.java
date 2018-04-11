@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
+
+import java.util.Objects;
 
 public class Lobby extends AppCompatActivity {
     private TextView userName;
@@ -35,14 +39,41 @@ public class Lobby extends AppCompatActivity {
 
         DatabaseReference myRef = database.getReference("users");
 
+        final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String value = snapshot.getValue(String.class);
-                    Log.w("LOBBY", value);
+                    User user = snapshot.getValue(User.class);
+
+                    assert currentUser != null;
+                    assert user != null;
+                    if (Objects.equals(currentUser.getEmail(), user.name)){
+                        if (user.game.equals("0")){
+                            Lobby.this.userLobby = "None";
+                        } else {
+                            Lobby.this.userLobby = user.game;
+                        }
+                    }
                 }
+                //Setting the userName with the user loged
+                userName = (TextView)findViewById(R.id.userName);
+                userName.setText(userLoged);
+
+                //Adding fragment from code
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+
+                Log.w("LOBBY", userLobby + " ");
+                if (userLobby == "None") {
+                    lobbyUnactive = new LobbyUnactive();
+                    ft.add(R.id.lobbyContainer, lobbyUnactive, "lobbyUnactive");
+                }else {
+                    lobbyActive = new LobbyActive();
+                    ft.add(R.id.lobbyContainer, lobbyActive, "lobbyActive");
+                }
+                ft.commit();
             }
 
             @Override
@@ -51,26 +82,7 @@ public class Lobby extends AppCompatActivity {
                 Log.w("LOBBY", "Failed to read value.", error.toException());
             }
         });
-        //BUSCAR SI EL USUARIO TIENE JUEGO ACTIVO EN FIREBASE
-            //HACER SHIT RARA AQUI
-        userLobby = "None"; //PONER AQUI EL RESULTADO DE LA BUSQUEDA
 
-        //Setting the userName with the user loged
-        userName = (TextView)findViewById(R.id.userName);
-        userName.setText(userLoged);
-
-        //Adding fragment from code
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-
-        if (userLobby == "None") {
-            lobbyUnactive = new LobbyUnactive();
-            ft.add(R.id.lobbyContainer, lobbyUnactive, "lobbyUnactive");
-        }else {
-            lobbyActive = new LobbyActive();
-            ft.add(R.id.lobbyContainer, lobbyActive, "lobbyActive");
-        }
-        ft.commit();
     }
 
     //NO SE SI ESTO FUNCIONE
