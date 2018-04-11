@@ -34,7 +34,7 @@ import java.util.ArrayList;
  */
 public class LobbyActive extends Fragment {
     private TextView userScore, league, owner, lobbyID;
-    private Button history, play;
+    private Button history, play, news;
     private ListView list;
     SharedPreferences sharedPreferences;
     private ParticipantsAdapter participantsAdapter;
@@ -58,6 +58,7 @@ public class LobbyActive extends Fragment {
         history = (Button)v.findViewById(R.id.history);
         play = (Button)v.findViewById(R.id.play);
         list = (ListView)v.findViewById(R.id.list);
+        news = (Button)v.findViewById(R.id.news);
 
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -148,8 +149,8 @@ public class LobbyActive extends Fragment {
             @Override
             public void onClick(View view) {
                 //PASAR A LA ACTIVIDAD DE HISTORIA
-                //Intent intent = new Intent(getActivity(), GameListActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
-                //getActivity(intent);
+                Intent intent = new Intent(LobbyActive.this.getContext(), HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+                startActivity(intent);
             }
         });
 
@@ -162,18 +163,27 @@ public class LobbyActive extends Fragment {
             }
         });
 
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //PASAR A LA ACTIVIDAD DE HISTORIA
+                Intent intent = new Intent(LobbyActive.this.getContext(), News.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+                startActivity(intent);
+            }
+        });
+
         return v;
     }
 
     public void playClick(View v){
         //PASAR A LA ACTIVIDAD DE JUEGO
-        Intent intent = new Intent();//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+        Intent intent = new Intent(LobbyActive.this.getContext(), GameListActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
         startActivity(intent);
     }
 
     public void historyClick(View v){
         //PASAR A LA ACTIVIDAD DE HISTORIA
-        Intent intent = new Intent();//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+        Intent intent = new Intent(LobbyActive.this.getContext(), HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
         startActivity(intent);
     }
 }
