@@ -5,6 +5,7 @@ package moviles2018itesm.quinelapp;
  */
 
 public class User {
+    public String id;
     public String name;
     public String game;
     public int score;

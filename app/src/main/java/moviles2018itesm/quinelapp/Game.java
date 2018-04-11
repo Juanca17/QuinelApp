@@ -9,4 +9,5 @@ public class Game {
     public String league;
     public String name;
     public String owner;
+    public String numPlayer;
 }

@@ -8,8 +8,11 @@
 
     <EditText
         android:id="@+id/lobbyIDInput"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/join"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Lobby ID"
         android:inputType="textPersonName"
@@ -20,6 +23,9 @@
         android:id="@+id/join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="201dp"
         android:onClick="joinClick"
         android:text="Join"
         tools:layout_editor_absoluteX="148dp"

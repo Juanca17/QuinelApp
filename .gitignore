@@ -47,4 +47,4 @@ Temporary Items
 .apdisk
 
 #Workspace.xml to avoid merge conflicts
-idea/workspace.xml
+.idea/workspace.xml
