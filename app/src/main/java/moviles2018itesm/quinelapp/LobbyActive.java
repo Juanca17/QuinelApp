@@ -98,9 +98,23 @@ public class LobbyActive extends Fragment {
 
                     assert currentUser != null;
                     assert user != null;
+                    ArrayList<String[]> participants = new ArrayList<String[]>();
                     if (Objects.equals(user.game, gameTemp) && !(Objects.equals(currentUser.getEmail(), user.name))){
                         String[] temp = {user.name, Integer.toString(user.score)};
-                        items.add(temp);
+                        participants.add(temp);
+                    }
+                    int participantsSize = participants.size();
+                    int max = 0;
+                    int maxI = 0;
+                    for (int i = 0; i < participantsSize; i++){
+                        for (int j = 0; i < participants.size(); i++){
+                            if (Integer.parseInt(participants.get(j)[1]) >= max ){
+                                max = Integer.parseInt(participants.get(j)[1]);
+                                maxI = j;
+                            }
+                        }
+                        items.add(participants.get(maxI));
+                        participants.remove(maxI);
                     }
                 }
 
@@ -173,11 +187,9 @@ public class LobbyActive extends Fragment {
                                     userScore.setText("Score: " + score);
                                 }
                             }
-
                         }
                     }
                 }
-
             }
 
             @Override
