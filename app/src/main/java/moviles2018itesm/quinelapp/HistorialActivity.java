@@ -44,7 +44,7 @@ public class HistorialActivity extends AppCompatActivity {
                                 Log.w("HISTORY", snapshot1.child("date").getValue().toString());
                                 Log.w("HISTORY", snapshot1.child("team1").child("name").getValue().toString());
                                 Log.w("HISTORY", snapshot1.child("team2").child("name").getValue().toString());
-                                historialArray.add(new Historial("Jornada 8",
+                                historialArray.add(new Historial(league,
                                         snapshot1.child("date").getValue().toString(),
                                         snapshot1.child("team1").child("name").getValue().toString(),
                                         snapshot1.child("team2").child("name").getValue().toString(),

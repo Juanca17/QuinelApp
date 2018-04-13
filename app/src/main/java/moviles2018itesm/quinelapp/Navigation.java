@@ -77,7 +77,7 @@ public class Navigation extends AppCompatActivity
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {

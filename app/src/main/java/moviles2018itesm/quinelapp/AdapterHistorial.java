@@ -72,19 +72,6 @@ public class AdapterHistorial extends BaseAdapter {
         TextView visita = (TextView) v.findViewById(R.id.visita);
         visita.setText(dir.getVisita());
 
-        TextView voto = (TextView) v.findViewById(R.id.voto);
-        voto.setText(dir.getVoto());
-
-        TextView resultado = (TextView) v.findViewById(R.id.resultado);
-        resultado.setText(dir.getResultado());
-        if (dir.getResultado() == "Acierto") {
-            resultado.setBackgroundColor(Color.parseColor("#ff99cc00"));
-        }
-        else if (dir.getResultado() == "Error") {
-            resultado.setBackgroundColor(Color.parseColor("#ffff4444"));
-        }
-
-
         return v;
     }
 }

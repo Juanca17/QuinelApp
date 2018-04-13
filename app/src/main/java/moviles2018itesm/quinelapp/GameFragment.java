@@ -104,11 +104,11 @@ public class GameFragment extends Fragment {
         nombreVisita = gameView.findViewById(R.id.nombreVisita);
         nombreVisita.setText(nvString);
 
-        equipoLocal = gameView.findViewById(R.id.equipoLocal);
-        equipoLocal.setBackgroundResource(resLocal);
+        //equipoLocal = gameView.findViewById(R.id.equipoLocal);
+        //equipoLocal.setBackgroundResource(resLocal);
 
-        equipoVisita = gameView.findViewById(R.id.equipoVisita);
-        equipoVisita.setBackgroundResource(resVisita);
+        //equipoVisita = gameView.findViewById(R.id.equipoVisita);
+        //equipoVisita.setBackgroundResource(resVisita);
 
         local = gameView.findViewById(R.id.local);
         empate = gameView.findViewById(R.id.empate);
