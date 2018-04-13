@@ -3,9 +3,11 @@ package moviles2018itesm.quinelapp;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -82,7 +84,6 @@ public class Lobby extends AppCompatActivity {
                 Log.w("LOBBY", "Failed to read value.", error.toException());
             }
         });
-
     }
 
     //NO SE SI ESTO FUNCIONE

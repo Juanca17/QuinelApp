@@ -4,81 +4,125 @@
     android:layout_height="match_parent"
     tools:context="moviles2018itesm.quinelapp.LobbyActive">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/participants"
-        android:layout_alignParentTop="true"
-        android:text="User Score" />
-
-    <TextView
-        android:id="@+id/league"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/score"
-        android:layout_marginStart="21dp"
-        android:text="League: " />
-
-    <TextView
-        android:id="@+id/owner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/league"
-        android:layout_below="@+id/league"
-        android:layout_marginTop="14dp"
-        android:text="Owner: " />
-
-    <TextView
-        android:id="@+id/participants"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/owner"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="Participants" />
-
-    <Button
-        android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/participants"
-        android:text="Play" />
-
-    <Button
-        android:id="@+id/history"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="18dp"
-        android:layout_toStartOf="@+id/participants"
-        android:text="History" />
-
-    <ListView
-        android:id="@+id/list"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/play"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/participants" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/lobbyID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/play"
-        android:layout_below="@+id/score"
-        android:text="LobbyID: " />
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="53dp"
+            android:ems="10"
+            android:letterSpacing="0.1"
+            android:text="Score: "
+            android:textColor="#fff"
+            android:textColorHint="#d9e5f3"
+            android:textSize="16dp" />
 
-    <Button
-        android:id="@+id/news"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/participants"
-        android:layout_below="@+id/list"
-        android:text="News" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/lobbyID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:letterSpacing="0.1"
+                android:text="Lobby:"
+                android:textColor="#fff"
+                android:textColorHint="#d9e5f3"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/owner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:letterSpacing="0.1"
+                android:text="Owner: "
+                android:textColor="#fff"
+                android:textColorHint="#d9e5f3"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/league"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:letterSpacing="0.1"
+                android:text="League: "
+                android:textColor="#fff"
+                android:textColorHint="#d9e5f3"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/participants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:letterSpacing="0.1"
+            android:text="Participants"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textColorHint="#d9e5f3"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_above="@+id/play"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/participants" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:background="#009a9a"
+                android:text="History"
+                android:textColor="#d9e5f3" />
+
+            <Button
+                android:id="@+id/news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:background="#009a9a"
+                android:text="News"
+                android:textColor="#d9e5f3" />
+
+            <Button
+                android:id="@+id/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:background="#009a9a"
+                android:text="Play"
+                android:textColor="#d9e5f3" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
