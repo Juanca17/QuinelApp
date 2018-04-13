@@ -194,6 +194,7 @@ public class LobbyActive extends Fragment {
             public void onClick(View view) {
                 //PASAR A LA ACTIVIDAD DE HISTORIA
                 Intent intent = new Intent(LobbyActive.this.getContext(), HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+                intent.putExtra("league", leagueString);
                 startActivity(intent);
             }
         });

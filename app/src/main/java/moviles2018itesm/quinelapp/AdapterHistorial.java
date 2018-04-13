@@ -84,8 +84,6 @@ public class AdapterHistorial extends BaseAdapter {
             resultado.setBackgroundColor(Color.parseColor("#ffff4444"));
         }
 
-        ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
-        imagen.setBackgroundResource(dir.getImagen());
 
         return v;
     }
