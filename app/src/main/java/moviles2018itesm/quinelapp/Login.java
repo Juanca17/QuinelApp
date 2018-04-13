@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
                 //HACER EL LOGIN FORZADO AQUI
                 //-----------------------------
                 //-----------------------------
-                Toast.makeText(
+                /*Toast.makeText(
                         this,
                         "USER LOADED: " + properties.getProperty("email"),
                         Toast.LENGTH_SHORT
@@ -122,6 +122,7 @@ public class Login extends AppCompatActivity {
                                 }
                             }
                         });
+                        */
 
             }else{
                 saveProperties();

@@ -33,7 +33,7 @@ public class Create extends AppCompatActivity {
         lobbyName = (TextView)findViewById(R.id.lobbyName);
         leagueInput = (TextView)findViewById(R.id.leagueInput);
         participantsNumber = (TextView)findViewById(R.id.participansNumber);
-        gameid = findViewById(R.id.gameid);
+        //gameid = findViewById(R.id.gameid);
         submit = (Button)findViewById(R.id.submit);
 
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -65,7 +65,7 @@ public class Create extends AppCompatActivity {
                 newRef.setValue(game);
                 database.getReference("users").child(currentUser.getUid()).child("game").setValue(postId);
 
-                gameid.setText("Lobby created. Lobby ID: \n" + postId);
+                //gameid.setText("Lobby created. Lobby ID: \n" + postId);
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("text label", postId);
                 clipboard.setPrimaryClip(clip);

@@ -33,7 +33,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class LobbyActive extends Fragment {
-    private TextView userScore, league, owner, lobbyID;
+    private TextView userScore, league, owner, lobbyID, userName;
     private Button history, play, news;
     private String leagueString;
     private ListView list;
@@ -61,10 +61,14 @@ public class LobbyActive extends Fragment {
         play = (Button)v.findViewById(R.id.play);
         list = (ListView)v.findViewById(R.id.list);
         news = (Button)v.findViewById(R.id.news);
+        userName = (TextView)v.findViewById(R.id.userName);
+
 
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users");
+
+        userName.setText(currentUser.getEmail());
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
