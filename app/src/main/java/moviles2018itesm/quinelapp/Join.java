@@ -64,6 +64,9 @@ public class Join extends AppCompatActivity {
                                         if (userObject.name.equals(currentUser.getEmail())){
                                             database.getReference("games").child(lobbyIDInputString).child("actNum").setValue(Integer.toString(Integer.parseInt(num) + 1));
                                             snapshot.getRef().child("game").setValue(lobbyIDInputString);
+                                            Intent resultado = new Intent();
+                                            resultado.putExtra("regreso", "HOLA ESTO REGRESÓ Y ESTUVO BIEN");
+                                            setResult(Activity.RESULT_CANCELED, resultado);
                                             finish();
                                             //Intent intent = new Intent(activity, Lobby.class);
                                             //intent.putExtra("user", currentUser.getEmail());

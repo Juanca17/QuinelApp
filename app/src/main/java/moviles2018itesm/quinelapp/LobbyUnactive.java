@@ -35,7 +35,7 @@ public class LobbyUnactive extends Fragment {
             public void onClick(View view) {
                 //AUN FALTA REFERENCIAR A LA SIGUIENTE ACTIVIDAD
                 Intent intent = new Intent(LobbyUnactive.this.getContext(), Create.class);//CLASE DE ACTIVIDAD DE CREAR AQUI)
-                startActivity(intent);
+                startActivityForResult(intent, 0);
             }
         });
 
@@ -44,7 +44,7 @@ public class LobbyUnactive extends Fragment {
             public void onClick(View view) {
                 //AUN FALTA REFERENCIAR A LA SIGUIENTE ACTIVIDAD
                 Intent intent = new Intent(LobbyUnactive.this.getContext(), Join.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
             }
         });
 
