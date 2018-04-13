@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="moviles2018itesm.quinelapp">
 
     <application
@@ -18,11 +19,16 @@
         </activity>
         <activity android:name=".Lobby" />
         <activity android:name=".GameListActivity" />
-        <activity android:name=".Lobby" />
-        <activity android:name=".Join"></activity>
+        <activity android:name=".Lobby"
+            tools:ignore="DuplicateActivity" />
+        <activity android:name=".Join" />
         <activity android:name=".Create" />
-        <activity android:name=".HistorialActivity"></activity>
-        <activity android:name=".News"></activity>
+        <activity android:name=".HistorialActivity" />
+        <activity android:name=".News" />
+        <activity
+            android:name=".Navigation"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

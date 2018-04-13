@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="moviles2018itesm.quinelapp.Lobby">
-
     <TextView
         android:id="@+id/userName"
         android:layout_width="wrap_content"

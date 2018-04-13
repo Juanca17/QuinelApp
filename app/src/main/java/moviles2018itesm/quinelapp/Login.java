@@ -111,13 +111,13 @@ public class Login extends AppCompatActivity {
 
                     }
                 });
-
     }
 
     private void updateUI(FirebaseUser user){
         if (user != null){
             hideProgressDialog();
-            Intent intent = new Intent(this, Lobby.class);
+            //Intent intent = new Intent(this, Lobby.class);
+            Intent intent = new Intent(this, Navigation.class);
             intent.putExtra("user", usernameField.getText().toString());
             startActivity(intent);
         } else {
