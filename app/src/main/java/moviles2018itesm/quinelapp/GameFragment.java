@@ -18,7 +18,10 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +35,7 @@ import javax.security.auth.callback.Callback;
 public class GameFragment extends Fragment {
 
     private Callback callback;
-    public DatabaseReference equ1, equ2;
+    public DatabaseReference equ1, equ2, t;
 
     private TextView fecha, nombreLocal, nombreVisita;
     private ImageView equipoLocal, equipoVisita;
@@ -42,6 +45,8 @@ public class GameFragment extends Fragment {
     private String fechaString;
     private String nlString;
     private String nvString;
+
+    private int s = 0;
 
     private int resLocal;
     private int resVisita;
@@ -53,7 +58,7 @@ public class GameFragment extends Fragment {
 
     }
 
-    public static GameFragment newInstance(String fechaString, String nlString, String nvString, int resLocal, int resVisita,  DatabaseReference equipo1, DatabaseReference equipo2) {
+    public static GameFragment newInstance(String fechaString, String nlString, String nvString, int resLocal, int resVisita,  DatabaseReference equipo1, DatabaseReference equipo2, DatabaseReference tie) {
         Bundle bundle = new Bundle();
         bundle.putString("fechaString", fechaString);
         bundle.putString("nlString", nlString);
@@ -65,6 +70,7 @@ public class GameFragment extends Fragment {
         fragment.setArguments(bundle);
         fragment.equ1 = equipo1;
         fragment.equ2 = equipo2;
+        fragment.t = tie;
 
         return fragment;
     }
@@ -104,8 +110,44 @@ public class GameFragment extends Fragment {
         equipoVisita = gameView.findViewById(R.id.equipoVisita);
         equipoVisita.setBackgroundResource(resVisita);
 
+        local = gameView.findViewById(R.id.local);
+        empate = gameView.findViewById(R.id.empate);
+        visita = gameView.findViewById(R.id.visita);
+
+        for(int i = 0; i < btn.length; i++){
+            btn[i] = gameView.findViewById(btn_id[i]);
+        }
+
         rGroup = gameView.findViewById(R.id.votacion);
         RadioButton checkedRadioButton = rGroup.findViewById(rGroup.getCheckedRadioButtonId());
+
+        equ1.getParent().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                if (dataSnapshot.child("team1").child("users").child(currentUser.getUid()).getValue() != null){
+                    local.setChecked(true);
+                } else if (dataSnapshot.child("team2").child("users").child(currentUser.getUid()).getValue() != null){
+                    visita.setChecked(true);
+                } else if (dataSnapshot.child("tie").child(currentUser.getUid()).getValue() != null){
+                    empate.setChecked(true);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("GameList", "Failed to read value.", error.toException());
+            }
+        });
+
+        /*if (this.s == 0){
+            local.setChecked(true);
+        } else if (this.s == 1){
+            visita.setChecked(true);
+        } else {
+            empate.setChecked(true);
+        }*/
 
         rGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
@@ -126,16 +168,23 @@ public class GameFragment extends Fragment {
                         Map<String, String> user= new HashMap<>();
                         user.put(currentUser.getProviderId(), currentUser.getEmail());
                         equ2.child("users").child(currentUser.getUid()).setValue(currentUser.getEmail());
-                        if (equ1.child("users").child(currentUser.getUid()) != null){
-                            equ1.child("users").child(currentUser.getUid()).removeValue();
-                        }
+                        equ1.child("users").child(currentUser.getUid()).removeValue();
+                        t.child(currentUser.getUid()).removeValue();
+
                     } else if (checkedRadioButton.getText().toString().equals("Local")){
                         Map<String, String> user= new HashMap<>();
                         user.put(currentUser.getUid(), currentUser.getEmail());
                         equ1.child("users").child(currentUser.getUid()).setValue(currentUser.getEmail());
-                        if (equ2.child("users").child(currentUser.getUid()) != null){
-                            equ2.child("users").child(currentUser.getUid()).removeValue();
-                        }
+                        equ2.child("users").child(currentUser.getUid()).removeValue();
+                        t.child(currentUser.getUid()).removeValue();
+
+                    } else if (checkedRadioButton.getText().toString().equals("Empate")){
+                        Map<String, String> user= new HashMap<>();
+                        user.put(currentUser.getUid(), currentUser.getEmail());
+                        t.child(currentUser.getUid()).setValue(currentUser.getEmail());
+                        equ2.child("users").child(currentUser.getUid()).removeValue();
+                        equ1.child("users").child(currentUser.getUid()).removeValue();
+
                     } else {
                         Log.w("FragGame", checkedRadioButton.getText().toString() + " Algo.");
                     }
@@ -144,15 +193,6 @@ public class GameFragment extends Fragment {
             }
         });
 
-        local = gameView.findViewById(R.id.local);
-        empate = gameView.findViewById(R.id.empate);
-        visita = gameView.findViewById(R.id.visita);
-
-
-
-        for(int i = 0; i < btn.length; i++){
-            btn[i] = gameView.findViewById(btn_id[i]);
-        }
 
         return gameView;
     }

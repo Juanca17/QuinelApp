@@ -57,7 +57,9 @@ public class GameListActivity extends AppCompatActivity {
                                         R.drawable.cruzazul,
                                         R.drawable.cruzazul,
                                         snapshot1.child("team1").getRef(),
-                                        snapshot1.child("team2").getRef()), snapshot1.child("date").getValue().toString());
+                                        snapshot1.child("team2").getRef(),
+                                        snapshot1.child("tie").getRef()),
+                                        snapshot1.child("date").getValue().toString());
                             }
                         }
                         ft.commit();
