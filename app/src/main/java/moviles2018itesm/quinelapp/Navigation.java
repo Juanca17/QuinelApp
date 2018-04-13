@@ -213,6 +213,21 @@ public class Navigation extends AppCompatActivity
             lobbyActive = new LobbyActive();
             ft.replace(R.id.content,lobbyActive);
         }
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //AQUI QUIERO CAMBIAR DE FRAGMENTO
+        Log.wtf("AVISO", "onStart called");
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if (userLobby == "None") {
+            lobbyUnactive = new LobbyUnactive();
+            ft.replace(R.id.content, lobbyUnactive);
+        } else {
+            lobbyActive = new LobbyActive();
+            ft.replace(R.id.content, lobbyActive);
+        }
     }
 }
