@@ -57,10 +57,8 @@ public class LobbyActive extends Fragment {
         league = (TextView)v.findViewById(R.id.league);
         owner = (TextView)v.findViewById(R.id.owner);
         lobbyID = (TextView)v.findViewById(R.id.lobbyID);
-        history = (Button)v.findViewById(R.id.history);
         play = (Button)v.findViewById(R.id.play);
         list = (ListView)v.findViewById(R.id.list);
-        news = (Button)v.findViewById(R.id.news);
         userName = (TextView)v.findViewById(R.id.userName);
 
 
@@ -197,15 +195,7 @@ public class LobbyActive extends Fragment {
         //DE ALGUNA FORMA LLENAR LISTVIEW CON PARTICIPANTES AQUI
         //--------------------------------------
 
-        history.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //PASAR A LA ACTIVIDAD DE HISTORIA
-                Intent intent = new Intent(LobbyActive.this.getContext(), HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
-                intent.putExtra("league", leagueString);
-                startActivity(intent);
-            }
-        });
+
 
         play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,14 +207,7 @@ public class LobbyActive extends Fragment {
             }
         });
 
-        news.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //PASAR A LA ACTIVIDAD DE HISTORIA
-                Intent intent = new Intent(LobbyActive.this.getContext(), News.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
-                startActivity(intent);
-            }
-        });
+
 
         return v;
     }

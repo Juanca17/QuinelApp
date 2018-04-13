@@ -173,6 +173,11 @@ public class Login extends AppCompatActivity {
                             //Meter el usuario
                             properties.put("email",usernameField.getText().toString());
                             properties.put("password", passwordField.getText().toString());
+                            try {
+                                saveProperties();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             updateUI(user);
                         } else {
                             updateUI(null);
