@@ -64,9 +64,10 @@ public class Join extends AppCompatActivity {
                                         if (userObject.name.equals(currentUser.getEmail())){
                                             database.getReference("games").child(lobbyIDInputString).child("actNum").setValue(Integer.toString(Integer.parseInt(num) + 1));
                                             snapshot.getRef().child("game").setValue(lobbyIDInputString);
-                                            Intent intent = new Intent(activity, Lobby.class);
-                                            intent.putExtra("user", currentUser.getEmail());
-                                            startActivity(intent);
+                                            finish();
+                                            //Intent intent = new Intent(activity, Lobby.class);
+                                            //intent.putExtra("user", currentUser.getEmail());
+                                            //startActivity(intent);
                                         }
                                     }
                                     Toast.makeText(activity, "You have joined the lobby "+lobbyIDInputString, Toast.LENGTH_SHORT).show();

@@ -2,6 +2,7 @@ package moviles2018itesm.quinelapp;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +28,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Objects;
+import java.util.Properties;
 
 public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -152,7 +159,6 @@ public class Navigation extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_lobby) {
-        } else if (id == R.id.nav_play) {
         } else if (id == R.id.nav_history) {
             Intent intent = new Intent(Navigation.this, HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
             startActivity(intent);
@@ -163,6 +169,26 @@ public class Navigation extends AppCompatActivity
             Intent intent = new Intent(Navigation.this, News.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
             startActivity(intent);
         } else if (id == R.id.nav_logout) {
+            try{
+                Properties properties = new Properties();
+                File file = new File(getFilesDir(), "properties.xml");
+                if (file.exists()) {
+                    FileInputStream fis = openFileInput("properties.xml");
+                    properties.loadFromXML(fis);
+                    fis.close();
+
+                    Log.wtf("TAGGGGGGGGGGGGGGGG", "LOGGED OUT" + properties.getProperty("email"));
+                    properties.put("email","");
+                    properties.put("password", "");
+                    FileOutputStream fos = openFileOutput("properties.xml", Context.MODE_PRIVATE);
+                    properties.storeToXML(fos, null);
+                    fos.close();
+                    Log.wtf("LOGOUT", "FILE SAVED LOGGING OUT");
+                    finish();
+                }
+            }catch(IOException ioe){
+                ioe.printStackTrace();
+            }
 
         }
 

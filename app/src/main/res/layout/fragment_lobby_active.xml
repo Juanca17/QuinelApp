@@ -113,28 +113,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/history"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="5dp"
-                android:layout_weight="1"
-                android:background="#009a9a"
-                android:text="History"
-                android:textColor="#d9e5f3" />
-
-            <Button
-                android:id="@+id/news"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="5dp"
-                android:layout_weight="1"
-                android:background="#009a9a"
-                android:text="News"
-                android:textColor="#d9e5f3" />
-
-            <Button
                 android:id="@+id/play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

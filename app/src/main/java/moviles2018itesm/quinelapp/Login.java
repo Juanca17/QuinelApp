@@ -84,6 +84,7 @@ public class Login extends AppCompatActivity {
 
         login = (Button) findViewById(R.id.button);
 
+        //------------------------------------------
         //Acceder a properties
         try{
             properties = new Properties();
@@ -95,6 +96,13 @@ public class Login extends AppCompatActivity {
                 //HACER EL LOGIN FORZADO AQUI
                 //-----------------------------
                 //-----------------------------
+                Log.wtf("TAGGGGGGGGGGGGGGGG", "USER LOADED: " + properties.getProperty("email"));
+                String userName = properties.getProperty("email");
+                String password = properties.getProperty("password");
+                if (userName != "" && password != ""){
+                    usernameField.setText(userName);
+                    passwordField.setText(password);
+                }
                 /*Toast.makeText(
                         this,
                         "USER LOADED: " + properties.getProperty("email"),

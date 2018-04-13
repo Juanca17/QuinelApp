@@ -70,6 +70,7 @@ public class Create extends AppCompatActivity {
                 ClipData clip = ClipData.newPlainText("text label", postId);
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(Create.this,"Lobby ID copied to clipboard." + postId, Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
