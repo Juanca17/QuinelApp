@@ -26,7 +26,7 @@
             android:background="#00000000"
             android:ems="10"
             android:letterSpacing="0.1"
-            android:textColor="#fff"
+            android:textColor="#d9e5f3"
             android:textColorHint="#d9e5f3"
             android:textSize="20dp"
             android:text="User Name "/>
