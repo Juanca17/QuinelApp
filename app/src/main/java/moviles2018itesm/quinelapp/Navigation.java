@@ -152,14 +152,14 @@ public class Navigation extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_lobby) {
-
         } else if (id == R.id.nav_play) {
-
         } else if (id == R.id.nav_history) {
             Intent intent = new Intent(Navigation.this, HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
             startActivity(intent);
         } else if (id == R.id.nav_news) {
             //ft.replace(R.id.content, new NewsFragment());
+            //ft.commit();
+
             Intent intent = new Intent(Navigation.this, News.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
             startActivity(intent);
         } else if (id == R.id.nav_logout) {
