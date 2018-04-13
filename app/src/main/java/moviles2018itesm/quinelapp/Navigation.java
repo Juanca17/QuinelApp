@@ -43,6 +43,8 @@ public class Navigation extends AppCompatActivity
     private LobbyActive lobbyActive;
 
     private String userLoged, userLobby;
+    private FirebaseUser currentUser;
+    public String league;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +75,7 @@ public class Navigation extends AppCompatActivity
 
         DatabaseReference myRef = database.getReference("users");
 
-        final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -160,8 +162,14 @@ public class Navigation extends AppCompatActivity
 
         if (id == R.id.nav_lobby) {
         } else if (id == R.id.nav_history) {
-            Intent intent = new Intent(Navigation.this, HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
-            startActivity(intent);
+            if (league != null){
+                Intent intent = new Intent(Navigation.this, HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+                intent.putExtra("league", league);
+                startActivity(intent);
+            }else{
+                Toast.makeText(this,"You need to be in a lobby", Toast.LENGTH_SHORT).show();
+            }
+
         } else if (id == R.id.nav_news) {
             //ft.replace(R.id.content, new NewsFragment());
             //ft.commit();

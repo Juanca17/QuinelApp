@@ -48,6 +48,10 @@ public class LobbyUnactive extends Fragment {
             }
         });
 
+        //Activity commuication
+        Navigation nav = (Navigation) getActivity();
+        nav.league = null;
+
         return v;
     }
 

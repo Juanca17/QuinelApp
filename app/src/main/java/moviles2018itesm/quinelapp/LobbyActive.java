@@ -132,6 +132,10 @@ public class LobbyActive extends Fragment {
                         league.setText("League: " + game.league);
                         owner.setText("Owner: " + game.owner);
                         lobbyID.setText("Lobby: " + game.name);
+
+                        //Activity commuication
+                        Navigation nav = (Navigation) getActivity();
+                        nav.league = game.league;
                     }
                 }
 
