@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:letterSpacing="0.1"
-                android:text="Selecciona tus pronósticos"
+                android:text="Selecciona tus pronosticos"
                 android:layout_margin="20dp"
                 android:textAlignment="center"
                 android:textColor="#d9e5f3"
@@ -103,39 +103,6 @@
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:orientation="horizontal"></LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/history"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginVertical="5dp"
-                    android:layout_weight="1"
-                    android:background="#009a9a"
-                    android:text="REGRESAR"
-                    android:textColor="#d9e5f3" />
-
-                <Button
-                    android:id="@+id/history"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginVertical="5dp"
-                    android:layout_weight="1"
-                    android:background="#009a9a"
-                    android:text="CONFIRMAR"
-                    android:textColor="#d9e5f3" />
-            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

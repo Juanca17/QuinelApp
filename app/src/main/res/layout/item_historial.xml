@@ -3,8 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#80d3d3d3"
     android:layout_margin="10dp"
+    android:background="#80d3d3d3"
     android:orientation="vertical">
 
     <LinearLayout
