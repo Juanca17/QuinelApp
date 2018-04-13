@@ -1,33 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="moviles2018itesm.quinelapp.Join">
-
-    <EditText
-        android:id="@+id/lobbyIDInput"
+    tools:context="moviles2018itesm.quinelapp.Create"
+    android:background="@drawable/grdnt"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/join"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:hint="Lobby ID"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="148dp" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/card"
+                    android:layout_gravity="center"/>
+                <EditText
+                    android:id="@+id/lobbyIDInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Lobby Name"
+                    android:textColorHint="#d9e5f3"
+                    android:layout_marginLeft="15dp"
+                    android:background="#00000000"
+                    android:letterSpacing="0.1"
+                    android:textSize="16dp"
+                    android:inputType="textPersonName"
+                    android:textColor="#fff"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#4a5a71"></LinearLayout>
 
-    <Button
-        android:id="@+id/join"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="201dp"
-        android:onClick="joinClick"
-        android:text="Join"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="380dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_marginBottom="20dp">
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="50dp"
+            android:background="#009a9a"
+            android:gravity="center"
+            android:letterSpacing="0.2"
+            android:onClick="joinClick"
+            android:padding="16dp"
+            android:text="JOIN"
+            android:textColor="#d9e5f3"
+            android:textStyle="bold" />
+    </LinearLayout>
 </RelativeLayout>
