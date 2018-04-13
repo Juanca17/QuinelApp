@@ -103,35 +103,6 @@ public class Login extends AppCompatActivity {
                     usernameField.setText(userName);
                     passwordField.setText(password);
                 }
-                /*Toast.makeText(
-                        this,
-                        "USER LOADED: " + properties.getProperty("email"),
-                        Toast.LENGTH_SHORT
-                ).show();
-                usernameField.setText(properties.getProperty("email"));
-                passwordField.setText(properties.getProperty("password"));
-                //Lo mismo que en el login
-                showProgressDialog();
-                mAuth.signInWithEmailAndPassword(usernameField.getText().toString(), passwordField.getText().toString())
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "signInWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    updateUI(user);
-                                } else {
-                                    updateUI(null);
-                                }
-                            }
-                        });
-                        */
-
             }else{
                 saveProperties();
             }
@@ -199,7 +170,6 @@ public class Login extends AppCompatActivity {
         FileOutputStream fos = openFileOutput(PROPERTIES_FILE, Context.MODE_PRIVATE);
         properties.storeToXML(fos, null);
         fos.close();
-        Toast.makeText(this, "FILE SAVED", Toast.LENGTH_SHORT).show();
     }
 
 }
