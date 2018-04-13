@@ -1,8 +1,10 @@
 package moviles2018itesm.quinelapp;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -70,6 +72,9 @@ public class Create extends AppCompatActivity {
                 ClipData clip = ClipData.newPlainText("text label", postId);
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(Create.this,"Lobby ID copied to clipboard." + postId, Toast.LENGTH_SHORT).show();
+                Intent resultado = new Intent();
+                resultado.putExtra("regreso", "HOLA ESTO REGRESÓ Y ESTUVO BIEN");
+                setResult(Activity.RESULT_CANCELED, resultado);
                 finish();
             }
         });

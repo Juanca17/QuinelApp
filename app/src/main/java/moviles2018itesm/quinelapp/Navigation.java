@@ -1,5 +1,6 @@
 package moviles2018itesm.quinelapp;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -165,7 +166,7 @@ public class Navigation extends AppCompatActivity
             if (league != null){
                 Intent intent = new Intent(Navigation.this, HistorialActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
                 intent.putExtra("league", league);
-                startActivity(intent);
+                startActivityForResult(intent,3);
             }else{
                 Toast.makeText(this,"You need to be in a lobby", Toast.LENGTH_SHORT).show();
             }
@@ -205,37 +206,21 @@ public class Navigation extends AppCompatActivity
         return true;
     }
 
-    //NO SE SI ESTO FUNCIONE
-    //Implementacion de lobby
+
     @Override
-    protected void onResume() {
-        super.onResume();
-        //AQUI QUIERO CAMBIAR DE FRAGMENTO
-        Log.wtf("AVISO", "onResume called");
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        if (userLobby == "None"){
-            lobbyUnactive = new LobbyUnactive();
-            ft.replace(R.id.content,lobbyUnactive);
-        }else {
+        // aquí escuchamos el regreso de una actividad
+        if(requestCode == 0 && resultCode == Activity.RESULT_CANCELED){
             lobbyActive = new LobbyActive();
             ft.replace(R.id.content,lobbyActive);
         }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //AQUI QUIERO CAMBIAR DE FRAGMENTO
-        Log.wtf("AVISO", "onStart called");
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        if (userLobby == "None") {
-            lobbyUnactive = new LobbyUnactive();
-            ft.replace(R.id.content, lobbyUnactive);
-        } else {
+        if(requestCode == 1 && resultCode == Activity.RESULT_CANCELED){
             lobbyActive = new LobbyActive();
-            ft.replace(R.id.content, lobbyActive);
+            ft.replace(R.id.content,lobbyActive);
         }
     }
 }
