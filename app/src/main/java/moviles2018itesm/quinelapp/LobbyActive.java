@@ -35,7 +35,9 @@ import java.util.ArrayList;
 public class LobbyActive extends Fragment {
     private TextView userScore, league, owner, lobbyID;
     private Button history, play, news;
+    private String leagueString;
     private ListView list;
+    private int score;
     SharedPreferences sharedPreferences;
     private ParticipantsAdapter participantsAdapter;
 
@@ -61,7 +63,7 @@ public class LobbyActive extends Fragment {
         news = (Button)v.findViewById(R.id.news);
 
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users");
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -78,6 +80,7 @@ public class LobbyActive extends Fragment {
                     assert user != null;
                     if (Objects.equals(currentUser.getEmail(), user.name)){
                         userScore.setText("Score: " + user.score);
+                        score = user.score;
                         gameTemp = user.game;
                         sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("game", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -121,9 +124,10 @@ public class LobbyActive extends Fragment {
                     assert currentUser != null;
                     assert game != null;
                     if (Objects.equals(gameSec, game.id)){
+                        leagueString = game.league;
                         league.setText("League: " + game.league);
                         owner.setText("Owner: " + game.owner);
-                        lobbyID.setText("Lobby: " + game.id);
+                        lobbyID.setText("Lobby: " + game.name);
                     }
                 }
 
@@ -135,6 +139,46 @@ public class LobbyActive extends Fragment {
                 Log.w("LOBBY", "Failed to read value.", error.toException());
             }
         });
+
+        DatabaseReference leagueRef = database.getReference("leagues");
+
+        leagueRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Log.w("LOBBY", snapshot.child("name").getValue().toString());
+                    Log.w("LOBBY", leagueString);
+                    if(snapshot.child("name").getValue().toString().equals(leagueString)){
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                            if (!snapshot1.getKey().equals("name")){
+                                Log.w("LOBBY", snapshot1.child("score1").getValue().toString());
+                                Log.w("LOBBY", snapshot1.child("score2").getValue().toString());
+                                if ((snapshot1.child("score1").getValue(Integer.class)) > (snapshot1.child("score2").getValue(Integer.class))
+                                        && snapshot1.child("team1").child("users").child(currentUser.getUid()) != null){
+                                    score++;
+                                    database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
+                                    userScore.setText("Score: " + score);
+                                }
+                                if ((snapshot1.child("score2").getValue(Integer.class)) > (snapshot1.child("score1").getValue(Integer.class))
+                                        && snapshot1.child("team2").child("users").child(currentUser.getUid()) != null){
+                                    database.getReference("users").child(currentUser.getUid()).child("score").setValue(score + 1);
+                                    userScore.setText("Score: " + score);
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("LOBBY", "Failed to read value.", error.toException());
+            }
+        });
+
         //Initializing adapter
         //CONSEGUIR UNA LISTA DE NOMBRE CON USUARIOS Y SUS SCORES DE LA DB
         ArrayList<String[]> items = new ArrayList<String[]>(); //INICIALIZAR LOS DATOS AQUI
@@ -159,6 +203,7 @@ public class LobbyActive extends Fragment {
             public void onClick(View view) {
                 //PASAR A LA ACTIVIDAD DE HISTORIA
                 Intent intent = new Intent(LobbyActive.this.getContext(), GameListActivity.class);//PONER AQUI INCIALIZADOR DE ACTIVIDAD
+                intent.putExtra("league", leagueString);
                 startActivity(intent);
             }
         });

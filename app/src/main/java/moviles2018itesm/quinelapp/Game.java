@@ -10,4 +10,5 @@ public class Game {
     public String name;
     public String owner;
     public String numPlayer;
+    public String actNum;
 }

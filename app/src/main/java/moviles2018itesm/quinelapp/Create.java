@@ -1,5 +1,8 @@
 package moviles2018itesm.quinelapp;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +22,7 @@ import java.util.Map;
 
 public class Create extends AppCompatActivity {
     private TextView lobbyName, leagueInput, participantsNumber;
+    private TextView gameid;
     private Button submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class Create extends AppCompatActivity {
         lobbyName = (TextView)findViewById(R.id.lobbyName);
         leagueInput = (TextView)findViewById(R.id.leagueInput);
         participantsNumber = (TextView)findViewById(R.id.participansNumber);
+        gameid = findViewById(R.id.gameid);
         submit = (Button)findViewById(R.id.submit);
 
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -49,6 +54,7 @@ public class Create extends AppCompatActivity {
                 game.league = leagueInputString;
                 game.name = lobbyNameString;
                 game.numPlayer = participantsNumberString;
+                game.actNum = "1";
 
                 games.put("game_1", game);
 
@@ -57,9 +63,13 @@ public class Create extends AppCompatActivity {
                 game.id = postId;
 
                 newRef.setValue(game);
+                database.getReference("users").child(currentUser.getUid()).child("game").setValue(postId);
 
-
-                Toast.makeText(Create.this,"Lobby created. Lobby ID: " + postId, Toast.LENGTH_SHORT).show();
+                gameid.setText("Lobby created. Lobby ID: \n" + postId);
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("text label", postId);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(Create.this,"Lobby ID copied to clipboard." + postId, Toast.LENGTH_SHORT).show();
             }
         });
     }

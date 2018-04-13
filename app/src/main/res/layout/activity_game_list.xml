@@ -8,9 +8,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="86dp">
 
         <LinearLayout
+            android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -31,86 +35,26 @@
                 android:text="Jornada 9"
                 android:textAlignment="center" />
 
-            <fragment
-                android:id="@+id/fragment"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment2"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment3"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment4"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment5"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment6"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment7"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment8"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment9"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:orientation="horizontal"></LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="REGRESAR" />
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="CONFIRMAR" />
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp"
+        android:layout_marginStart="61dp"
+        android:text="Regresar" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="47dp"
+        android:text="Confirmar" />
 
 </RelativeLayout>
