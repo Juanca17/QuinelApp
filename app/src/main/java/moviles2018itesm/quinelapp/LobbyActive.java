@@ -173,8 +173,9 @@ public class LobbyActive extends Fragment {
                             if (!snapshot1.getKey().equals("name")){
                                 Log.w("LOBBY", snapshot1.child("score1").getValue().toString());
                                 Log.w("LOBBY", snapshot1.child("score2").getValue().toString());
+                                //Cambiar despues de definir nuevo sistema de puntos
                                 if ((snapshot1.child("score1").getValue(Integer.class)) > (snapshot1.child("score2").getValue(Integer.class))
-                                        && snapshot1.child("team1").child("users").child(currentUser.getUid()) != null){
+                                        && snapshot1.child("users").child(currentUser.getUid()) != null){
                                     score++;
                                     database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
                                     userScore.setText("Score: " + score);

@@ -6,11 +6,16 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
+import android.text.method.DigitsKeyListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -38,21 +43,16 @@ public class GameFragment extends Fragment {
     public DatabaseReference equ1, equ2, t;
 
     private TextView fecha, nombreLocal, nombreVisita;
-    private ImageView equipoLocal, equipoVisita;
-    private RadioButton local, empate, visita;
-    private RadioGroup rGroup;
+    private EditText eq1, eq2;
 
-    private String fechaString;
-    private String nlString;
-    private String nvString;
+    private ImageView equipoLocal, equipoVisita;
+
+    private String fechaString, nlString, nvString, eq1String, eq2String;
 
     private int s = 0;
 
     private int resLocal;
     private int resVisita;
-
-    private Button[] btn = new Button[3];
-    private int[] btn_id = {R.id.local, R.id.empate, R.id.visita};
 
     public GameFragment() {
 
@@ -104,95 +104,93 @@ public class GameFragment extends Fragment {
         nombreVisita = gameView.findViewById(R.id.nombreVisita);
         nombreVisita.setText(nvString);
 
-        //equipoLocal = gameView.findViewById(R.id.equipoLocal);
-        //equipoLocal.setBackgroundResource(resLocal);
+        eq1 = gameView.findViewById(R.id.eq1);
+        eq2 = gameView.findViewById(R.id.eq2);
 
-        //equipoVisita = gameView.findViewById(R.id.equipoVisita);
-        //equipoVisita.setBackgroundResource(resVisita);
+        final DatabaseReference parentRef = equ1.getParent();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        local = gameView.findViewById(R.id.local);
-        empate = gameView.findViewById(R.id.empate);
-        visita = gameView.findViewById(R.id.visita);
-
-        for(int i = 0; i < btn.length; i++){
-            btn[i] = gameView.findViewById(btn_id[i]);
-        }
-
-        rGroup = gameView.findViewById(R.id.votacion);
-        RadioButton checkedRadioButton = rGroup.findViewById(rGroup.getCheckedRadioButtonId());
-
-        equ1.getParent().addListenerForSingleValueEvent(new ValueEventListener() {
+        parentRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                if (dataSnapshot.child("team1").child("users").child(currentUser.getUid()).getValue() != null){
-                    local.setChecked(true);
-                } else if (dataSnapshot.child("team2").child("users").child(currentUser.getUid()).getValue() != null){
-                    visita.setChecked(true);
-                } else if (dataSnapshot.child("tie").child(currentUser.getUid()).getValue() != null){
-                    empate.setChecked(true);
+                if (dataSnapshot.child("users").child(user.getUid()).exists()){
+                    Log.d("GAME", "onDataChange: Exists");
+                    eq1.setText(dataSnapshot.child("users").child(user.getUid()).child("equipo1").getValue().toString());
+                    eq2.setText(dataSnapshot.child("users").child(user.getUid()).child("equipo2").getValue().toString());
+                } else {
+                    Score score = new Score(Integer.parseInt(eq1.getText().toString()), Integer.parseInt(eq2.getText().toString()));
+                    parentRef.child("users").child(user.getUid()).setValue(score);
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("GameList", "Failed to read value.", error.toException());
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
-        /*if (this.s == 0){
-            local.setChecked(true);
-        } else if (this.s == 1){
-            visita.setChecked(true);
-        } else {
-            empate.setChecked(true);
-        }*/
+        eq2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
 
-        rGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
-                // This will get the radiobutton that has changed in its check state
-                RadioButton checkedRadioButton = (RadioButton)group.findViewById(checkedId);
-                // This puts the value (true/false) into the variable
-                boolean isChecked = checkedRadioButton.isChecked();
-                // If the radiobutton that has changed in check state is now checked...
-                if (isChecked)
-                {
-                    // Changes the textview's text to "Checked: example radiobutton text"
-                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                    if (checkedRadioButton.getText().toString().equals("Visitante")){
-                        //User user = new User();
-                        //user.name = currentUser.getEmail();
-                        Map<String, String> user= new HashMap<>();
-                        user.put(currentUser.getProviderId(), currentUser.getEmail());
-                        equ2.child("users").child(currentUser.getUid()).setValue(currentUser.getEmail());
-                        equ1.child("users").child(currentUser.getUid()).removeValue();
-                        t.child(currentUser.getUid()).removeValue();
+                if (eq2.getText().toString().equals("")){
+                    eq2.setText("0");
+                }
 
-                    } else if (checkedRadioButton.getText().toString().equals("Local")){
-                        Map<String, String> user= new HashMap<>();
-                        user.put(currentUser.getUid(), currentUser.getEmail());
-                        equ1.child("users").child(currentUser.getUid()).setValue(currentUser.getEmail());
-                        equ2.child("users").child(currentUser.getUid()).removeValue();
-                        t.child(currentUser.getUid()).removeValue();
+            }
+        });
 
-                    } else if (checkedRadioButton.getText().toString().equals("Empate")){
-                        Map<String, String> user= new HashMap<>();
-                        user.put(currentUser.getUid(), currentUser.getEmail());
-                        t.child(currentUser.getUid()).setValue(currentUser.getEmail());
-                        equ2.child("users").child(currentUser.getUid()).removeValue();
-                        equ1.child("users").child(currentUser.getUid()).removeValue();
+        eq2.addTextChangedListener(new TextWatcher() {
 
-                    } else {
-                        Log.w("FragGame", checkedRadioButton.getText().toString() + " Algo.");
-                    }
-                    Log.w("FragGame", checkedRadioButton.getText().toString());
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!editable.toString().equals("")){
+                    Score score = new Score(Integer.parseInt(eq1.getText().toString()), Integer.parseInt(eq2.getText().toString()));
+                    parentRef.child("users").child(user.getUid()).setValue(score);
                 }
             }
         });
 
+        eq1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+
+                if (eq1.getText().toString().equals("")){
+                    eq1.setText("0");
+                }
+
+            }
+        });
+
+        eq1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                //eq1.setText(charSequence.subSequence(1, i2));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(!editable.toString().equals("")) {
+                    Score score = new Score(Integer.parseInt(eq1.getText().toString()), Integer.parseInt(eq2.getText().toString()));
+                    parentRef.child("users").child(user.getUid()).setValue(score);
+                }
+            }
+        });
 
         return gameView;
     }
