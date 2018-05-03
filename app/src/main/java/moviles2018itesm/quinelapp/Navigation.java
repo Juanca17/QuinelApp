@@ -206,6 +206,31 @@ public class Navigation extends AppCompatActivity
         return true;
     }
 
+    public void changeFragment(){
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        // aquí escuchamos el regreso de una actividad
+        lobbyActive = new LobbyActive();
+        ft.replace(R.id.content,lobbyActive);
+        Log.wtf("Fuck", "haha yes");
+
+    }
+
+    public void startCreate(){
+
+                //AUN FALTA REFERENCIAR A LA SIGUIENTE ACTIVIDAD
+        Intent intent = new Intent(this, Create.class);//CLASE DE ACTIVIDAD DE CREAR AQUI)
+        startActivityForResult(intent, 0);
+
+
+
+    }
+
+    public void startJoin(){
+        Intent intent = new Intent(this, Join.class);
+        startActivityForResult(intent,1);
+
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -214,11 +239,13 @@ public class Navigation extends AppCompatActivity
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         // aquí escuchamos el regreso de una actividad
-        if(requestCode == 0 && resultCode == Activity.RESULT_CANCELED){
+
+        Log.wtf("Fuck", requestCode + " " + resultCode);
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK){
             lobbyActive = new LobbyActive();
             ft.replace(R.id.content,lobbyActive);
         }
-        if(requestCode == 1 && resultCode == Activity.RESULT_CANCELED){
+        if(requestCode == 1 && resultCode == Activity.RESULT_OK){
             lobbyActive = new LobbyActive();
             ft.replace(R.id.content,lobbyActive);
         }

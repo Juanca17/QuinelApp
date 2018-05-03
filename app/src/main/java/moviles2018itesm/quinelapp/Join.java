@@ -66,7 +66,7 @@ public class Join extends AppCompatActivity {
                                             snapshot.getRef().child("game").setValue(lobbyIDInputString);
                                             Intent resultado = new Intent();
                                             resultado.putExtra("regreso", "HOLA ESTO REGRESÓ Y ESTUVO BIEN");
-                                            setResult(Activity.RESULT_CANCELED, resultado);
+                                            setResult(Activity.RESULT_OK, resultado);
                                             finish();
                                             //Intent intent = new Intent(activity, Lobby.class);
                                             //intent.putExtra("user", currentUser.getEmail());

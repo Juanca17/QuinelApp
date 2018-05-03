@@ -105,7 +105,7 @@ public class LobbyActive extends Fragment {
                     int max = 0;
                     int maxI = 0;
                     for (int i = 0; i < participantsSize; i++){
-                        for (int j = 0; i < participants.size(); i++){
+                        for (int j = 0; j < participants.size(); j++){
                             if (Integer.parseInt(participants.get(j)[1]) >= max ){
                                 max = Integer.parseInt(participants.get(j)[1]);
                                 maxI = j;

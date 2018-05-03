@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".Lobby" />
         <activity android:name=".GameListActivity" />
-        <activity android:name=".Lobby"
+        <activity
+            android:name=".Lobby"
             tools:ignore="DuplicateActivity" />
         <activity android:name=".Join" />
         <activity android:name=".Create" />
@@ -28,7 +29,8 @@
         <activity
             android:name=".Navigation"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SignUpActivity"></activity>
     </application>
 
 </manifest>

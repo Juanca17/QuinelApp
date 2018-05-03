@@ -74,7 +74,7 @@ public class Create extends AppCompatActivity {
                 Toast.makeText(Create.this,"Lobby ID copied to clipboard." + postId, Toast.LENGTH_SHORT).show();
                 Intent resultado = new Intent();
                 resultado.putExtra("regreso", "HOLA ESTO REGRESÓ Y ESTUVO BIEN");
-                setResult(Activity.RESULT_CANCELED, resultado);
+                setResult(Activity.RESULT_OK, resultado);
                 finish();
             }
         });

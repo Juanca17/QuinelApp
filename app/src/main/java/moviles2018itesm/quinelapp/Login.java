@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
     private EditText usernameField;
     private EditText passwordField;
 
-    private Button login;
+    private Button login, signup;
 
     private ProgressDialog mProgressDialog;
 
@@ -83,6 +83,7 @@ public class Login extends AppCompatActivity {
         passwordField = (EditText) findViewById(R.id.passwordField);
 
         login = (Button) findViewById(R.id.button);
+        signup = (Button) findViewById(R.id.go);
 
         //------------------------------------------
         //Acceder a properties
@@ -109,6 +110,15 @@ public class Login extends AppCompatActivity {
         }catch(IOException ioe){
             ioe.printStackTrace();
         }
+
+        signup.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
