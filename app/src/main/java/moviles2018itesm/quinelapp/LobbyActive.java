@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -171,19 +172,26 @@ public class LobbyActive extends Fragment {
                     if(snapshot.child("name").getValue().toString().equals(leagueString)){
                         for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                             if (!snapshot1.getKey().equals("name")){
-                                Log.w("LOBBY", snapshot1.child("score1").getValue().toString());
-                                Log.w("LOBBY", snapshot1.child("score2").getValue().toString());
                                 //Cambiar despues de definir nuevo sistema de puntos
-                                if ((snapshot1.child("score1").getValue(Integer.class)) > (snapshot1.child("score2").getValue(Integer.class))
-                                        && snapshot1.child("users").child(currentUser.getUid()) != null){
-                                    score++;
-                                    database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
-                                    userScore.setText("Score: " + score);
-                                }
-                                if ((snapshot1.child("score2").getValue(Integer.class)) > (snapshot1.child("score1").getValue(Integer.class))
-                                        && snapshot1.child("team2").child("users").child(currentUser.getUid()) != null){
-                                    database.getReference("users").child(currentUser.getUid()).child("score").setValue(score + 1);
-                                    userScore.setText("Score: " + score);
+                                if (snapshot1.child("played").getValue(Boolean.class)){
+                                    try {
+                                        int newScore1 = snapshot1.child("score1").getValue(Integer.class);
+                                        int newScore2 = snapshot1.child("score2").getValue(Integer.class);
+                                        int betScore1 = snapshot1.child("users").child(currentUser.getUid()).child("equipo1").getValue(Integer.class);
+                                        int betScore2 = snapshot1.child("users").child(currentUser.getUid()).child("equipo2").getValue(Integer.class);
+
+                                        if ((newScore1 == betScore1) && (newScore2 == betScore2)){
+                                            score += 5;
+                                            database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
+                                            userScore.setText("Score: " + score);
+                                        } else if (((newScore1 > newScore2) && (betScore1 > betScore2)) || ((newScore1 < newScore2) && (betScore1 < betScore2)) || ((newScore1 == newScore2) && (betScore1 == betScore2))){
+                                            score ++;
+                                            database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
+                                            userScore.setText("Score: " + score);
+                                        }
+                                    } catch (NullPointerException e){
+                                        Log.d("LOBBYACTIVE", "Games not played yet");
+                                    }
                                 }
                             }
                         }
