@@ -2,9 +2,12 @@ package moviles2018itesm.quinelapp;
 
 
 import android.annotation.SuppressLint;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.InputType;
@@ -54,6 +57,9 @@ public class GameFragment extends Fragment {
     private int resLocal;
     private int resVisita;
 
+    private Button notify;
+    private View gameView;
+
     public GameFragment() {
 
     }
@@ -89,7 +95,7 @@ public class GameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View gameView = inflater.inflate(R.layout.fragment_game, container, false);
+        gameView = inflater.inflate(R.layout.fragment_game, container, false);
 
         readBundle(getArguments());
 
@@ -125,6 +131,21 @@ public class GameFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        notify = (Button)gameView.findViewById(R.id.notify);
+        notify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(gameView.getContext(), "1").
+                        setDefaults(NotificationCompat.DEFAULT_ALL).
+                        setSmallIcon(R.drawable.logo2).
+                        setContentTitle(nombreLocal + " vs " + nombreVisita).
+                        setContentText("Pending game at " + fechaString);
+                NotificationManager nManager = (NotificationManager) gameView.getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                nManager.notify(1, nBuilder.build());
 
             }
         });
