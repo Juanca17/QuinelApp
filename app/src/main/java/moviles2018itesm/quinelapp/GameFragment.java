@@ -142,7 +142,7 @@ public class GameFragment extends Fragment {
                 NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(gameView.getContext(), "1").
                         setDefaults(NotificationCompat.DEFAULT_ALL).
                         setSmallIcon(R.drawable.logo2).
-                        setContentTitle(nombreLocal + " vs " + nombreVisita).
+                        setContentTitle(nombreLocal.getText().toString() + " vs " + nombreVisita.getText().toString()).
                         setContentText("Pending game at " + fechaString);
                 NotificationManager nManager = (NotificationManager) gameView.getContext().getSystemService(Context.NOTIFICATION_SERVICE);
                 nManager.notify(1, nBuilder.build());
