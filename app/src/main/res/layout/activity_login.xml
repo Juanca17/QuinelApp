@@ -12,7 +12,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/rectangle">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -21,20 +22,20 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/usrusr"
+                    android:src="@drawable/user"
                     android:layout_gravity="center"/>
                 <EditText
                     android:id="@+id/usernameField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username"
-                    android:textColorHint="#d9e5f3"
+                    android:textColorHint="#000"
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"
                     android:letterSpacing="0.1"
                     android:textSize="16dp"
                     android:inputType="textEmailAddress"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:ems="10"
                     />
             </LinearLayout>
@@ -50,20 +51,20 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/pswd"
+                    android:src="@drawable/pswrd"
                     android:layout_gravity="center"/>
                 <EditText
                     android:id="@+id/passwordField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
-                    android:textColorHint="#d9e5f3"
+                    android:textColorHint="#000"
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"
                     android:inputType="textPassword"
                     android:letterSpacing="0.1"
                     android:textSize="16dp"
-                    android:textColor="#fff"/>
+                    android:textColor="#000"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -98,7 +99,11 @@
         <Button
             android:id="@+id/go"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:textColor="#d9e5f3"
+            android:letterSpacing="0.2"
+            android:background="#009a9a"
+            android:textStyle="bold"
             android:onClick="toSignUp"
             android:text="Sign up" />
 
