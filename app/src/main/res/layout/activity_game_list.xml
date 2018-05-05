@@ -4,42 +4,47 @@
     android:layout_height="match_parent"
     android:background="@drawable/grdnt">
 
-    <LinearLayout
-        android:id="@+id/line"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@drawable/rectangle"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
+            android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:ems="10"
-            android:letterSpacing="0.1"
-            android:text="Selecciona tus pronosticos"
-            android:textAlignment="center"
-            android:textColor="#000"
-            android:textColorHint="#000"
-            android:textSize="22dp"
-            android:textStyle="bold" />
+            android:background="@drawable/rectangle"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:ems="10"
-            android:letterSpacing="0.1"
-            android:text="Jornada 14"
-            android:textAlignment="center"
-            android:textColor="#000"
-            android:textColorHint="#000"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:ems="10"
+                android:letterSpacing="0.1"
+                android:text="Selecciona tus pronosticos"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="22dp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:letterSpacing="0.1"
+                android:text="Jornada 14"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
