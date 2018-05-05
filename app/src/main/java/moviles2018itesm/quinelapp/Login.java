@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
     private EditText usernameField;
     private EditText passwordField;
 
-    private Button login;
+    private Button login, signup;
 
     private ProgressDialog mProgressDialog;
 
@@ -83,7 +83,9 @@ public class Login extends AppCompatActivity {
         passwordField = (EditText) findViewById(R.id.passwordField);
 
         login = (Button) findViewById(R.id.button);
+        signup = (Button) findViewById(R.id.go);
 
+        //------------------------------------------
         //Acceder a properties
         try{
             properties = new Properties();
@@ -95,40 +97,28 @@ public class Login extends AppCompatActivity {
                 //HACER EL LOGIN FORZADO AQUI
                 //-----------------------------
                 //-----------------------------
-                Toast.makeText(
-                        this,
-                        "USER LOADED: " + properties.getProperty("email"),
-                        Toast.LENGTH_SHORT
-                ).show();
-                usernameField.setText(properties.getProperty("email"));
-                passwordField.setText(properties.getProperty("password"));
-                //Lo mismo que en el login
-                showProgressDialog();
-                mAuth.signInWithEmailAndPassword(usernameField.getText().toString(), passwordField.getText().toString())
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "signInWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    updateUI(user);
-                                } else {
-                                    updateUI(null);
-                                }
-                            }
-                        });
-
+                Log.wtf("TAGGGGGGGGGGGGGGGG", "USER LOADED: " + properties.getProperty("email"));
+                String userName = properties.getProperty("email");
+                String password = properties.getProperty("password");
+                if (userName != "" && password != ""){
+                    usernameField.setText(userName);
+                    passwordField.setText(password);
+                }
             }else{
                 saveProperties();
             }
         }catch(IOException ioe){
             ioe.printStackTrace();
         }
+
+        signup.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -164,6 +154,11 @@ public class Login extends AppCompatActivity {
                             //Meter el usuario
                             properties.put("email",usernameField.getText().toString());
                             properties.put("password", passwordField.getText().toString());
+                            try {
+                                saveProperties();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             updateUI(user);
                         } else {
                             updateUI(null);
@@ -190,7 +185,6 @@ public class Login extends AppCompatActivity {
         FileOutputStream fos = openFileOutput(PROPERTIES_FILE, Context.MODE_PRIVATE);
         properties.storeToXML(fos, null);
         fos.close();
-        Toast.makeText(this, "FILE SAVED", Toast.LENGTH_SHORT).show();
     }
 
 }

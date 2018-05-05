@@ -9,10 +9,6 @@
             android:icon="@android:drawable/ic_menu_myplaces"
             android:title="Lobby" />
         <item
-            android:id="@+id/nav_play"
-            android:icon="@android:drawable/ic_menu_add"
-            android:title="Play" />
-        <item
             android:id="@+id/nav_history"
             android:icon="@android:drawable/ic_menu_agenda"
             android:title="History" />

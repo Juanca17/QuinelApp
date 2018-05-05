@@ -1,114 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="moviles2018itesm.quinelapp.Login">
+    android:background="@drawable/grdnt">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/rectangle"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Selecciona tus pronósticos"
+                android:layout_margin="20dp"
+                android:ems="10"
+                android:letterSpacing="0.1"
+                android:text="Selecciona tus pronosticos"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="22dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Jornada 9"
-                android:textAlignment="center" />
-
-            <fragment
-                android:id="@+id/fragment"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment2"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment3"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment4"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment5"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment6"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment7"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment8"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <fragment
-                android:id="@+id/fragment9"
-                android:name="moviles2018itesm.quinelapp.GameFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:orientation="horizontal"></LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="REGRESAR" />
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="CONFIRMAR" />
-            </LinearLayout>
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:letterSpacing="0.1"
+                android:text="Jornada 14"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="12dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

@@ -8,9 +8,8 @@ public class Historial {
     private String visita;
     private String voto;
     private String resultado;
-    private int imagen;
 
-    public Historial(String jornada, String fecha, String local, String visita, String voto, String resultado, int imagen) {
+    public Historial(String jornada, String fecha, String local, String visita, String voto, String resultado) {
         super();
         this.jornada = jornada;
         this.fecha = fecha;
@@ -18,7 +17,6 @@ public class Historial {
         this.visita = visita;
         this.voto = voto;
         this.resultado = resultado;
-        this.imagen = imagen;
     }
 
     public String getJornada() {
@@ -67,14 +65,6 @@ public class Historial {
 
     public void setResultado(String resultado) {
         this.resultado = resultado;
-    }
-
-    public int getImagen() {
-        return this.imagen;
-    }
-
-    public void setImagen(int imagen) {
-        this.imagen = imagen;
     }
 
 }

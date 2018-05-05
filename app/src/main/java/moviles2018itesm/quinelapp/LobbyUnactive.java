@@ -34,8 +34,10 @@ public class LobbyUnactive extends Fragment {
             @Override
             public void onClick(View view) {
                 //AUN FALTA REFERENCIAR A LA SIGUIENTE ACTIVIDAD
-                Intent intent = new Intent(LobbyUnactive.this.getContext(), Create.class);//CLASE DE ACTIVIDAD DE CREAR AQUI)
-                startActivity(intent);
+                //Intent intent = new Intent(getActivity(), Create.class);//CLASE DE ACTIVIDAD DE CREAR AQUI)
+                //getActivity().startActivityForResult(intent, 0);
+                Navigation nav = (Navigation) getActivity();
+                nav.startCreate();
             }
         });
 
@@ -43,10 +45,16 @@ public class LobbyUnactive extends Fragment {
             @Override
             public void onClick(View view) {
                 //AUN FALTA REFERENCIAR A LA SIGUIENTE ACTIVIDAD
-                Intent intent = new Intent(LobbyUnactive.this.getContext(), Join.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getActivity(), Join.class);
+                //getActivity().startActivityForResult(intent,1);
+                Navigation nav = (Navigation) getActivity();
+                nav.startJoin();
             }
         });
+
+        //Activity commuication
+        Navigation nav = (Navigation) getActivity();
+        nav.league = null;
 
         return v;
     }

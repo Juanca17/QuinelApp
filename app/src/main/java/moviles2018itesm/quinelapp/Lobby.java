@@ -43,7 +43,7 @@ public class Lobby extends AppCompatActivity {
 
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
