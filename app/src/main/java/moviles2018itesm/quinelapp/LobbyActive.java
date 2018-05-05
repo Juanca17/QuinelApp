@@ -36,10 +36,9 @@ import java.util.ArrayList;
 public class LobbyActive extends Fragment {
     private TextView userScore, league, owner, lobbyID, userName;
     private Button history, play, news;
-    private String leagueString;
+    private String leagueString, gameString;
     private ListView list;
     private int score;
-    SharedPreferences sharedPreferences;
     private ParticipantsAdapter participantsAdapter;
 
     public LobbyActive() {
@@ -85,10 +84,7 @@ public class LobbyActive extends Fragment {
                         userScore.setText("Score: " + user.score);
                         score = user.score;
                         gameTemp = user.game;
-                        sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("game", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("game", user.game);
-                        editor.apply();
+                        gameString = user.game;
                         Log.w("ACTIVE", user.game);
                     }
                 }
@@ -135,8 +131,7 @@ public class LobbyActive extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Game game = snapshot.getValue(Game.class);
-                    sharedPreferences = getActivity().getApplicationContext().getSharedPreferences("game", Context.MODE_PRIVATE);
-                    String gameSec = sharedPreferences.getString("game", null);
+                    String gameSec = gameString;
 
                     assert currentUser != null;
                     assert game != null;
@@ -173,25 +168,30 @@ public class LobbyActive extends Fragment {
                         for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                             if (!snapshot1.getKey().equals("name")){
                                 //Cambiar despues de definir nuevo sistema de puntos
-                                if (snapshot1.child("played").getValue(Boolean.class)){
-                                    try {
-                                        int newScore1 = snapshot1.child("score1").getValue(Integer.class);
-                                        int newScore2 = snapshot1.child("score2").getValue(Integer.class);
-                                        int betScore1 = snapshot1.child("users").child(currentUser.getUid()).child("equipo1").getValue(Integer.class);
-                                        int betScore2 = snapshot1.child("users").child(currentUser.getUid()).child("equipo2").getValue(Integer.class);
+                                try {
+                                    if (snapshot1.child("played").getValue(Boolean.class) && !snapshot1.child("users").child(currentUser.getUid()).child("checked").getValue(Boolean.class)){
 
-                                        if ((newScore1 == betScore1) && (newScore2 == betScore2)){
-                                            score += 5;
-                                            database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
-                                            userScore.setText("Score: " + score);
-                                        } else if (((newScore1 > newScore2) && (betScore1 > betScore2)) || ((newScore1 < newScore2) && (betScore1 < betScore2)) || ((newScore1 == newScore2) && (betScore1 == betScore2))){
-                                            score ++;
-                                            database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
-                                            userScore.setText("Score: " + score);
-                                        }
-                                    } catch (NullPointerException e){
-                                        Log.d("LOBBYACTIVE", "Games not played yet");
+                                            int newScore1 = snapshot1.child("score1").getValue(Integer.class);
+                                            int newScore2 = snapshot1.child("score2").getValue(Integer.class);
+                                            int betScore1 = snapshot1.child("users").child(currentUser.getUid()).child("equipo1").getValue(Integer.class);
+                                            int betScore2 = snapshot1.child("users").child(currentUser.getUid()).child("equipo2").getValue(Integer.class);
+
+                                            if ((newScore1 == betScore1) && (newScore2 == betScore2)){
+                                                score += 5;
+                                                database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
+                                                userScore.setText("Score: " + score);
+                                            } else if (((newScore1 > newScore2) && (betScore1 > betScore2)) || ((newScore1 < newScore2) && (betScore1 < betScore2)) || ((newScore1 == newScore2) && (betScore1 == betScore2))){
+                                                score ++;
+                                                database.getReference("users").child(currentUser.getUid()).child("score").setValue(score);
+                                                userScore.setText("Score: " + score);
+                                            }
+
+                                            snapshot1.child("users").child(currentUser.getUid()).getRef().child("checked").setValue(true);
+
                                     }
+                                } catch (NullPointerException e){
+                                    Log.d("LOBBYACTIVE", "Games not played yet");
+                                    continue;
                                 }
                             }
                         }
